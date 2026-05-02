@@ -68,12 +68,29 @@ def is_late_punch_in(scheduled_in: str, actual_in: str) -> bool:
         return False
 
 
-def evaluate_attendance(actual_hours: float, shift_info: dict) -> dict:
-    """Per-shift attendance evaluation — full / half / short."""
+def get_punch_in_delay_minutes(scheduled_in: str, actual_in: str) -> float:
+    """Returns the delay in minutes (0 if on time or within buffer)."""
+    try:
+        diff = (datetime.strptime(actual_in, "%H:%M") -
+                datetime.strptime(scheduled_in, "%H:%M")).total_seconds() / 60
+        return max(0, diff)
+    except Exception:
+        return 0
+
+
+def evaluate_attendance(actual_hours: float, shift_info: dict, is_late: bool = False) -> dict:
+    """Per-shift attendance evaluation — full / half / short.
+    If late punch-in beyond buffer, mark as half-day regardless of hours."""
     total       = shift_info.get("total", 8.5)
     half_thresh = total / 2
     is_pt       = shift_info.get("part_time", False)
     pt_label    = "Part-time half-day" if is_pt else "Half-day"
+
+    # If punch-in is delayed beyond buffer, mark as half-day
+    if is_late:
+        return {"status": "HALF",  "color": "warning",
+                "message": (f"⚠️ {pt_label} — Late punch-in detected ({actual_hours:.2f} hrs worked). "
+                            "Attendance marked as half-day due to delayed arrival.")}
 
     if actual_hours >= total:
         return {"status": "FULL",  "color": "success",
@@ -295,7 +312,7 @@ def hr_chatbot_page():
                         if is_late_punch_in(si.get("in", "08:00"), pi.strip()):
                             st.warning(
                                 f"⚠️ Punch-in **{pi.strip()}** is more than {PUNCH_IN_BUFFER_MIN} min "
-                                f"after scheduled time **{si.get('in','?')}**. This may be flagged as late."
+                                f"after scheduled time **{si.get('in','?')}**. This will be marked as half-day."
                             )
                         st.session_state.punch_in   = pi.strip()
                         st.session_state.chat_state = "attendance_punch_out"
@@ -327,10 +344,11 @@ def hr_chatbot_page():
                         st.session_state.chat_state = "attendance_result"
                         st.rerun()
 
-        # ── Result ───────────────────────────────────────────────────────────
+        # ── Result ──────────────────────────────────────────────────────────
         elif st.session_state.chat_state == "attendance_result":
             si    = get_shift_info(st.session_state.shift)
             hours = calculate_working_hours(st.session_state.punch_in, st.session_state.punch_out)
+            is_late = is_late_punch_in(si.get("in", "08:00"), st.session_state.punch_in)
             st.divider()
             st.subheader("✓ Attendance Analysis")
 
@@ -348,7 +366,7 @@ def hr_chatbot_page():
             else:
                 total = si.get("total", 8.5)
                 half  = total / 2
-                res   = evaluate_attendance(hours, si)
+                res   = evaluate_attendance(hours, si, is_late=is_late)
 
                 ca, cb = st.columns(2)
                 with ca:
@@ -368,10 +386,12 @@ def hr_chatbot_page():
                 elif res["color"] == "warning": st.warning(res["message"])
                 else:                           st.error(res["message"])
 
-                if is_late_punch_in(si.get("in", "08:00"), st.session_state.punch_in):
+                if is_late:
+                    delay_mins = get_punch_in_delay_minutes(si.get("in", "08:00"), st.session_state.punch_in)
                     st.warning(
-                        f"⚠️ Late punch-in: **{st.session_state.punch_in}** vs scheduled "
-                        f"**{si.get('in','?')}** (buffer: {PUNCH_IN_BUFFER_MIN} min)."
+                        f"⏰ **Delayed Punch-In:** {st.session_state.punch_in} vs scheduled "
+                        f"{si.get('in','?')} (Delay: {delay_mins:.0f} min, Buffer: {PUNCH_IN_BUFFER_MIN} min). "
+                        f"**Attendance marked as HALF-DAY.**"
                     )
 
             st.divider()
