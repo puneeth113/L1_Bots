@@ -162,7 +162,8 @@ def is_within_two_months(date_to_check) -> bool:
 def reset_to_issue_select():
     for k in ["shift", "punch_in", "punch_out", "leave_concern", "leave_date",
               "lapsed_type", "salary_concern", "working_days", "lop_days",
-              "salary_component", "salary_description", "custom_shift_in", "custom_shift_out"]:
+              "salary_component", "salary_description", "custom_shift_in", "custom_shift_out",
+              "salary_month", "salary_year"]:
         st.session_state.pop(k, None)
     st.session_state.selected_issue = None
     st.session_state.chat_state     = "select_issue"
@@ -663,7 +664,7 @@ If you believe it was incorrectly lapsed, contact HR with your attendance and le
                     st.session_state.salary_concern = concern
                     st.session_state.chat_state = (
                         "salary_not_received"     if concern == "Salary not received" else
-                        "salary_discrepancy_days" if concern == "Salary discrepancy" else
+                        "salary_discrepancy_month_year" if concern == "Salary discrepancy" else
                         "salary_components"
                     )
                     st.rerun()
@@ -688,14 +689,50 @@ If you believe it was incorrectly lapsed, contact HR with your attendance and le
                 if st.button("🔄 Start New Session", key="btn_restart_nr", use_container_width=True):
                     reset_to_issue_select(); st.rerun()
 
+        elif st.session_state.chat_state == "salary_discrepancy_month_year":
+            st.info("**Step 4:** Select Month and Year of Payslip")
+            col_m, col_y = st.columns(2)
+            
+            current_date = datetime.now()
+            with col_m:
+                salary_month = st.selectbox(
+                    "Select Month:",
+                    ["January", "February", "March", "April", "May", "June", 
+                     "July", "August", "September", "October", "November", "December"],
+                    index=current_date.month - 1,
+                    key="salary_month_select"
+                )
+            
+            with col_y:
+                # Allow selection of current year and previous 2 years
+                year_range = [current_date.year - 2, current_date.year - 1, current_date.year]
+                salary_year = st.selectbox(
+                    "Select Year:",
+                    year_range,
+                    index=len(year_range) - 1,
+                    key="salary_year_select"
+                )
+            
+            cb, cn = st.columns(2)
+            with cb:
+                if st.button("← Back", key="btn_my_back", use_container_width=True):
+                    go_back("salary_type")
+            with cn:
+                if st.button("➡️ Next", key="btn_month_year_next", use_container_width=True):
+                    st.session_state.salary_month = salary_month
+                    st.session_state.salary_year = salary_year
+                    st.session_state.chat_state = "salary_discrepancy_days"
+                    st.rerun()
+
         elif st.session_state.chat_state == "salary_discrepancy_days":
-            st.info("**Step 4:** Working Days in Your Payslip")
+            month_year_display = f"{st.session_state.get('salary_month', 'N/A')} {st.session_state.get('salary_year', 'N/A')}"
+            st.info(f"**Step 5:** Working Days in Your Payslip for **{month_year_display}**")
             wd = st.number_input("Working days shown in payslip this month?",
                                  min_value=0, max_value=31, step=1, key="working_days_input")
             cb, cn = st.columns(2)
             with cb:
                 if st.button("← Back", key="btn_wd_back", use_container_width=True):
-                    go_back("salary_type")
+                    go_back("salary_discrepancy_month_year")
             with cn:
                 if st.button("➡️ Next", key="btn_days_next", use_container_width=True):
                     st.session_state.working_days = int(wd)
@@ -703,7 +740,8 @@ If you believe it was incorrectly lapsed, contact HR with your attendance and le
                     st.rerun()
 
         elif st.session_state.chat_state == "salary_discrepancy_lop":
-            st.info("**Step 5:** Loss of Pay (LOP) Days")
+            month_year_display = f"{st.session_state.get('salary_month', 'N/A')} {st.session_state.get('salary_year', 'N/A')}"
+            st.info(f"**Step 6:** Loss of Pay (LOP) Days for **{month_year_display}**")
             st.markdown(f"Working days: **{st.session_state.working_days}**")
             lop = st.number_input("LOP (Loss of Pay) days in payslip?",
                                   min_value=0, max_value=31, step=1, key="lop_days_input")
@@ -718,7 +756,8 @@ If you believe it was incorrectly lapsed, contact HR with your attendance and le
                     st.rerun()
 
         elif st.session_state.chat_state == "salary_discrepancy_component":
-            st.info("**Step 6:** Which Component Has the Discrepancy?")
+            month_year_display = f"{st.session_state.get('salary_month', 'N/A')} {st.session_state.get('salary_year', 'N/A')}"
+            st.info(f"**Step 7:** Which Component Has the Discrepancy? (**{month_year_display}**)")
             st.markdown(f"Working days: **{st.session_state.working_days}** | LOP: **{st.session_state.lop_days}**")
             comp = st.text_input("Type the salary component (e.g., Basic, HRA, DA, PF, Bonus…):",
                                  placeholder="e.g., HRA", key="salary_component_input")
@@ -736,7 +775,8 @@ If you believe it was incorrectly lapsed, contact HR with your attendance and le
                         st.error("❌ Please enter the salary component")
 
         elif st.session_state.chat_state == "salary_discrepancy_description":
-            st.info("**Step 7:** Describe Your Issue")
+            month_year_display = f"{st.session_state.get('salary_month', 'N/A')} {st.session_state.get('salary_year', 'N/A')}"
+            st.info(f"**Step 8:** Describe Your Issue (**{month_year_display}**)")
             st.markdown(
                 f"Working days: **{st.session_state.working_days}** | "
                 f"LOP: **{st.session_state.lop_days}** | "
@@ -768,7 +808,9 @@ If you believe it was incorrectly lapsed, contact HR with your attendance and le
             lop       = st.session_state.get("lop_days",            "N/A")
             component = st.session_state.get("salary_component",   "[Component]")
             desc      = st.session_state.get("salary_description", "[Description]")
-            month_yr  = datetime.now().strftime("%B %Y")
+            salary_month = st.session_state.get("salary_month", "N/A")
+            salary_year = st.session_state.get("salary_year", "N/A")
+            month_yr  = f"{salary_month} {salary_year}"
 
             if wd == "N/A" or component == "[Component]":
                 st.warning("⚠️ Session data is incomplete. Please restart the salary discrepancy flow.")
