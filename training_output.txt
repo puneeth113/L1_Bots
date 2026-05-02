@@ -1,0 +1,623 @@
+﻿rasa : C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-packages
+\rasa\core\tracker_store.py:1044: MovedIn20Warning: Deprecated API features 
+detected! These feature(s) are not compatible with SQLAlchemy 2.0. To prevent 
+incompatible upgrades prior to updating applications, ensure requirements 
+files are pinned to "sqlalchemy<2.0". Set environment variable 
+SQLALCHEMY_WARN_20=1 to show all deprecation warnings.  Set environment 
+variable SQLALCHEMY_SILENCE_UBER_WARNING=1 to silence this message. 
+(Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+At line:1 char:1
++ rasa train 2>&1 | Out-File -FilePath training_output.txt -Encoding ut ...
++ ~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\punee\...lche.me/e/b8d9) 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  Base: DeclarativeMeta = declarative_base()
+C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-packages\rasa\s
+hared\utils\validation.py:134: DeprecationWarning: pkg_resources is deprecated 
+as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+  import pkg_resources
+C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-packages\pkg_re
+sources\__init__.py:3117: DeprecationWarning: Deprecated call to 
+`pkg_resources.declare_namespace('mpl_toolkits')`.
+Implementing implicit namespace packages (as specified in PEP 420) is 
+preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/
+en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-packages\pkg_re
+sources\__init__.py:3117: DeprecationWarning: Deprecated call to 
+`pkg_resources.declare_namespace('ruamel')`.
+Implementing implicit namespace packages (as specified in PEP 420) is 
+preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/
+en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+2026-05-01 17:56:46 [1;30mINFO    [0m [34mrasa.cli.train[0m  - Started 
+validating domain and training data...
+C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-packages\tensor
+flow\lite\python\util.py:52: DeprecationWarning: jax.xla_computation is 
+deprecated. Please use the AOT APIs.
+  from jax import xla_computation as _xla_computation
+2026-05-01 17:56:57 [1;30mINFO    [0m [34mrasa.validator[0m  - Validating 
+intents...
+[93mC:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-packages\r
+asa\shared\utils\io.py:100: UserWarning: The intent 'employee_id_provided' is 
+not used in any story or rule.
+[0m[93mC:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-packag
+es\rasa\shared\utils\io.py:100: UserWarning: The intent 'thankyou' is not used 
+in any story or rule.
+[0m2026-05-01 17:56:57 [1;30mINFO    [0m [34mrasa.validator[0m  - 
+Validating uniqueness of intents and stories...
+2026-05-01 17:56:57 [1;30mINFO    [0m [34mrasa.validator[0m  - Validating 
+utterances...
+[93mC:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-packages\r
+asa\shared\utils\io.py:100: UserWarning: The utterance 'utter_ask_employee_id' 
+is not used in any story or rule.
+[0m[93mC:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-packag
+es\rasa\shared\utils\io.py:100: UserWarning: The utterance 'utter_thankyou' is 
+not used in any story or rule.
+[0m2026-05-01 17:56:57 [1;30mINFO    [0m [34mrasa.validator[0m  - Story 
+structure validation...
+
+Processed story blocks:   0%|          | 0/8 [00:00<?, ?it/s]
+Processed story blocks:   0%|          | 0/8 [00:00<?, ?it/s, # trackers=1]
+Processed story blocks:   0%|          | 0/8 [00:00<?, ?it/s, # trackers=1]
+Processed story blocks:   0%|          | 0/8 [00:00<?, ?it/s, # trackers=1]
+Processed story blocks:   0%|          | 0/8 [00:00<?, ?it/s, # trackers=1]
+Processed story blocks:   0%|          | 0/8 [00:00<?, ?it/s, # trackers=1]
+Processed story blocks:   0%|          | 0/8 [00:00<?, ?it/s, # trackers=1]
+Processed story blocks:   0%|          | 0/8 [00:00<?, ?it/s, # trackers=1]
+Processed story blocks:   0%|          | 0/8 [00:00<?, ?it/s, # trackers=1]
+Processed story blocks: 100%|##########| 8/8 [00:00<00:00, 2204.19it/s, # 
+trackers=1]
+2026-05-01 17:56:57 [1;30mINFO    [0m 
+[34mrasa.core.training.story_conflict[0m  - Considering all preceding turns 
+for conflict analysis.
+2026-05-01 17:56:57 [1;30mINFO    [0m [34mrasa.validator[0m  - No story 
+structure conflicts found.
+The configuration for policies and pipeline was chosen automatically. It was written into the config file at 'config.yml'.
+C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-packages\matplo
+tlib\fontconfig_pattern.py:66: PyparsingDeprecationWarning: 'setParseAction' 
+deprecated - use 'set_parse_action'
+  ).setParseAction(self._family)
+C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-packages\matplo
+tlib\fontconfig_pattern.py:127: PyparsingDeprecationWarning: 'parseString' 
+deprecated - use 'parse_string'
+  self._parser.parseString(pattern)
+C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-packages\matplo
+tlib\fontconfig_pattern.py:134: PyparsingDeprecationWarning: 'resetCache' 
+deprecated - use 'reset_cache'
+  self._parser.resetCache()
+2026-05-01 17:57:02 [1;30mINFO    [0m [34mrasa.engine.training.hooks[0m  - 
+Starting to train component 'RegexFeaturizer'.
+2026-05-01 17:57:02 [1;30mINFO    [0m [34mrasa.engine.training.hooks[0m  - 
+Finished training component 'RegexFeaturizer'.
+2026-05-01 17:57:02 [1;30mINFO    [0m [34mrasa.engine.training.hooks[0m  - 
+Starting to train component 'LexicalSyntacticFeaturizer'.
+2026-05-01 17:57:02 [1;30mINFO    [0m [34mrasa.engine.training.hooks[0m  - 
+Finished training component 'LexicalSyntacticFeaturizer'.
+2026-05-01 17:57:02 [1;30mINFO    [0m [34mrasa.engine.training.hooks[0m  - 
+Starting to train component 'CountVectorsFeaturizer'.
+2026-05-01 17:57:02 [1;30mINFO    [0m 
+[34mrasa.nlu.featurizers.sparse_featurizer.count_vectors_featurizer[0m  - 
+102 vocabulary items were created for text attribute.
+2026-05-01 17:57:02 [1;30mINFO    [0m [34mrasa.engine.training.hooks[0m  - 
+Finished training component 'CountVectorsFeaturizer'.
+2026-05-01 17:57:02 [1;30mINFO    [0m [34mrasa.engine.training.hooks[0m  - 
+Starting to train component 'CountVectorsFeaturizer'.
+2026-05-01 17:57:02 [1;30mINFO    [0m 
+[34mrasa.nlu.featurizers.sparse_featurizer.count_vectors_featurizer[0m  - 
+943 vocabulary items were created for text attribute.
+2026-05-01 17:57:02 [1;30mINFO    [0m [34mrasa.engine.training.hooks[0m  - 
+Finished training component 'CountVectorsFeaturizer'.
+2026-05-01 17:57:02 [1;30mINFO    [0m [34mrasa.engine.training.hooks[0m  - 
+Starting to train component 'DIETClassifier'.
+
+Epochs:   0%|          | 0/100 [00:00<?, ?it/s]
+Epochs:   1%|1         | 1/100 [00:44<1:12:49, 44.13s/it]
+Epochs:   1%|1         | 1/100 [00:44<1:12:49, 44.13s/it, t_loss=8.66, 
+i_acc=0.219, e_f1=0.0346]
+Epochs:   2%|2         | 2/100 [00:44<29:54, 18.31s/it, t_loss=8.66, 
+i_acc=0.219, e_f1=0.0346]  
+Epochs:   2%|2         | 2/100 [00:44<29:54, 18.31s/it, t_loss=6.07, 
+i_acc=0.133, e_f1=0]     
+Epochs:   3%|3         | 3/100 [00:44<16:18, 10.08s/it, t_loss=6.07, 
+i_acc=0.133, e_f1=0]
+Epochs:   3%|3         | 3/100 [00:44<16:18, 10.08s/it, t_loss=5.01, 
+i_acc=0.334, e_f1=0]
+Epochs:   4%|4         | 4/100 [00:44<09:55,  6.20s/it, t_loss=5.01, 
+i_acc=0.334, e_f1=0]
+Epochs:   4%|4         | 4/100 [00:44<09:55,  6.20s/it, t_loss=5.5, 
+i_acc=0.196, e_f1=0] 
+Epochs:   5%|5         | 5/100 [00:45<06:24,  4.05s/it, t_loss=5.5, 
+i_acc=0.196, e_f1=0]
+Epochs:   5%|5         | 5/100 [00:45<06:24,  4.05s/it, t_loss=5.12, 
+i_acc=0.211, e_f1=0]
+Epochs:   6%|6         | 6/100 [00:45<04:18,  2.75s/it, t_loss=5.12, 
+i_acc=0.211, e_f1=0]
+Epochs:   6%|6         | 6/100 [00:45<04:18,  2.75s/it, t_loss=5.52, 
+i_acc=0.542, e_f1=0]
+Epochs:   7%|7         | 7/100 [00:45<03:04,  1.98s/it, t_loss=5.52, 
+i_acc=0.542, e_f1=0]
+Epochs:   7%|7         | 7/100 [00:45<03:04,  1.98s/it, t_loss=5.28, 
+i_acc=0.542, e_f1=0]
+Epochs:   8%|8         | 8/100 [00:45<02:10,  1.42s/it, t_loss=5.28, 
+i_acc=0.542, e_f1=0]
+Epochs:   8%|8         | 8/100 [00:45<02:10,  1.42s/it, t_loss=4.94, 
+i_acc=0.681, e_f1=0]
+Epochs:   9%|9         | 9/100 [00:46<01:34,  1.04s/it, t_loss=4.94, 
+i_acc=0.681, e_f1=0]
+Epochs:   9%|9         | 9/100 [00:46<01:34,  1.04s/it, t_loss=4.85, 
+i_acc=0.708, e_f1=0]
+Epochs:  10%|#         | 10/100 [00:46<01:10,  1.28it/s, t_loss=4.85, 
+i_acc=0.708, e_f1=0]
+Epochs:  10%|#         | 10/100 [00:46<01:10,  1.28it/s, t_loss=4.58, 
+i_acc=0.778, e_f1=0.222]
+Epochs:  11%|#1        | 11/100 [00:46<00:54,  1.63it/s, t_loss=4.58, 
+i_acc=0.778, e_f1=0.222]
+Epochs:  11%|#1        | 11/100 [00:46<00:54,  1.63it/s, t_loss=4.52, 
+i_acc=0.792, e_f1=0.118]
+Epochs:  12%|#2        | 12/100 [00:46<00:45,  1.92it/s, t_loss=4.52, 
+i_acc=0.792, e_f1=0.118]
+Epochs:  12%|#2        | 12/100 [00:46<00:45,  1.92it/s, t_loss=4.3, 
+i_acc=0.722, e_f1=0.476] 
+Epochs:  13%|#3        | 13/100 [00:47<00:37,  2.32it/s, t_loss=4.3, 
+i_acc=0.722, e_f1=0.476]
+Epochs:  13%|#3        | 13/100 [00:47<00:37,  2.32it/s, t_loss=4.38, 
+i_acc=0.792, e_f1=0.333]
+Epochs:  14%|#4        | 14/100 [00:47<00:31,  2.75it/s, t_loss=4.38, 
+i_acc=0.792, e_f1=0.333]
+Epochs:  14%|#4        | 14/100 [00:47<00:31,  2.75it/s, t_loss=4.2, 
+i_acc=0.764, e_f1=0.621] 
+Epochs:  15%|#5        | 15/100 [00:47<00:27,  3.11it/s, t_loss=4.2, 
+i_acc=0.764, e_f1=0.621]
+Epochs:  15%|#5        | 15/100 [00:47<00:27,  3.11it/s, t_loss=4.05, 
+i_acc=0.847, e_f1=0.467]
+Epochs:  16%|#6        | 16/100 [00:47<00:25,  3.32it/s, t_loss=4.05, 
+i_acc=0.847, e_f1=0.467]
+Epochs:  16%|#6        | 16/100 [00:47<00:25,  3.32it/s, t_loss=3.93, 
+i_acc=0.861, e_f1=0.529]
+Epochs:  17%|#7        | 17/100 [00:48<00:24,  3.37it/s, t_loss=3.93, 
+i_acc=0.861, e_f1=0.529]
+Epochs:  17%|#7        | 17/100 [00:48<00:24,  3.37it/s, t_loss=3.85, 
+i_acc=0.875, e_f1=0.485]
+Epochs:  18%|#8        | 18/100 [00:48<00:22,  3.65it/s, t_loss=3.85, 
+i_acc=0.875, e_f1=0.485]
+Epochs:  18%|#8        | 18/100 [00:48<00:22,  3.65it/s, t_loss=3.73, 
+i_acc=0.778, e_f1=0.581]
+Epochs:  19%|#9        | 19/100 [00:48<00:21,  3.83it/s, t_loss=3.73, 
+i_acc=0.778, e_f1=0.581]
+Epochs:  19%|#9        | 19/100 [00:48<00:21,  3.83it/s, t_loss=3.7, 
+i_acc=0.889, e_f1=0.722] 
+Epochs:  20%|##        | 20/100 [00:48<00:19,  4.16it/s, t_loss=3.7, 
+i_acc=0.889, e_f1=0.722]
+Epochs:  20%|##        | 20/100 [00:48<00:19,  4.16it/s, t_loss=3.52, 
+i_acc=0.861, e_f1=0.649]
+Epochs:  21%|##1       | 21/100 [00:49<00:19,  4.13it/s, t_loss=3.52, 
+i_acc=0.861, e_f1=0.649]
+Epochs:  21%|##1       | 21/100 [00:49<00:19,  4.13it/s, t_loss=3.44, 
+i_acc=0.875, e_f1=0.629]
+Epochs:  22%|##2       | 22/100 [00:49<00:19,  3.93it/s, t_loss=3.44, 
+i_acc=0.875, e_f1=0.629]
+Epochs:  22%|##2       | 22/100 [00:49<00:19,  3.93it/s, t_loss=3.32, 
+i_acc=0.917, e_f1=0.706]
+Epochs:  23%|##3       | 23/100 [00:49<00:18,  4.11it/s, t_loss=3.32, 
+i_acc=0.917, e_f1=0.706]
+Epochs:  23%|##3       | 23/100 [00:49<00:18,  4.11it/s, t_loss=3.4, 
+i_acc=0.875, e_f1=0.629] 
+Epochs:  24%|##4       | 24/100 [00:49<00:17,  4.31it/s, t_loss=3.4, 
+i_acc=0.875, e_f1=0.629]
+Epochs:  24%|##4       | 24/100 [00:49<00:17,  4.31it/s, t_loss=3.17, 
+i_acc=0.931, e_f1=0.581]
+Epochs:  25%|##5       | 25/100 [00:49<00:16,  4.52it/s, t_loss=3.17, 
+i_acc=0.931, e_f1=0.581]
+Epochs:  25%|##5       | 25/100 [00:49<00:16,  4.52it/s, t_loss=3.2, 
+i_acc=0.917, e_f1=0.667] 
+Epochs:  26%|##6       | 26/100 [00:50<00:15,  4.66it/s, t_loss=3.2, 
+i_acc=0.917, e_f1=0.667]
+Epochs:  26%|##6       | 26/100 [00:50<00:15,  4.66it/s, t_loss=3.12, 
+i_acc=0.917, e_f1=0.48]
+Epochs:  27%|##7       | 27/100 [00:50<00:15,  4.86it/s, t_loss=3.12, 
+i_acc=0.917, e_f1=0.48]
+Epochs:  27%|##7       | 27/100 [00:50<00:15,  4.86it/s, t_loss=3.06, 
+i_acc=0.931, e_f1=0.583]
+Epochs:  28%|##8       | 28/100 [00:50<00:15,  4.65it/s, t_loss=3.06, 
+i_acc=0.931, e_f1=0.583]
+Epochs:  28%|##8       | 28/100 [00:50<00:15,  4.65it/s, t_loss=3.06, 
+i_acc=0.931, e_f1=0.769]
+Epochs:  29%|##9       | 29/100 [00:50<00:15,  4.68it/s, t_loss=3.06, 
+i_acc=0.931, e_f1=0.769]
+Epochs:  29%|##9       | 29/100 [00:50<00:15,  4.68it/s, t_loss=2.92, 
+i_acc=0.931, e_f1=0.64] 
+Epochs:  30%|###       | 30/100 [00:50<00:14,  4.73it/s, t_loss=2.92, 
+i_acc=0.931, e_f1=0.64]
+Epochs:  30%|###       | 30/100 [00:50<00:14,  4.73it/s, t_loss=2.91, 
+i_acc=0.958, e_f1=0.696]
+Epochs:  31%|###1      | 31/100 [00:51<00:13,  4.99it/s, t_loss=2.91, 
+i_acc=0.958, e_f1=0.696]
+Epochs:  31%|###1      | 31/100 [00:51<00:13,  4.99it/s, t_loss=3.11, 
+i_acc=0.917, e_f1=0.48] 
+Epochs:  32%|###2      | 32/100 [00:51<00:13,  5.11it/s, t_loss=3.11, 
+i_acc=0.917, e_f1=0.48]
+Epochs:  32%|###2      | 32/100 [00:51<00:13,  5.11it/s, t_loss=2.9, 
+i_acc=0.931, e_f1=0.56] 
+Epochs:  33%|###3      | 33/100 [00:51<00:13,  4.85it/s, t_loss=2.9, 
+i_acc=0.931, e_f1=0.56]
+Epochs:  33%|###3      | 33/100 [00:51<00:13,  4.85it/s, t_loss=2.91, 
+i_acc=0.958, e_f1=0.545]
+Epochs:  34%|###4      | 34/100 [00:51<00:14,  4.40it/s, t_loss=2.91, 
+i_acc=0.958, e_f1=0.545]
+Epochs:  34%|###4      | 34/100 [00:51<00:14,  4.40it/s, t_loss=2.95, 
+i_acc=0.944, e_f1=0.522]
+Epochs:  35%|###5      | 35/100 [00:52<00:14,  4.64it/s, t_loss=2.95, 
+i_acc=0.944, e_f1=0.522]
+Epochs:  35%|###5      | 35/100 [00:52<00:14,  4.64it/s, t_loss=2.77, 
+i_acc=0.986, e_f1=0.72] 
+Epochs:  36%|###6      | 36/100 [00:52<00:13,  4.80it/s, t_loss=2.77, 
+i_acc=0.986, e_f1=0.72]
+Epochs:  36%|###6      | 36/100 [00:52<00:13,  4.80it/s, t_loss=2.75, 
+i_acc=0.944, e_f1=0.741]
+Epochs:  37%|###7      | 37/100 [00:52<00:12,  5.13it/s, t_loss=2.75, 
+i_acc=0.944, e_f1=0.741]
+Epochs:  37%|###7      | 37/100 [00:52<00:12,  5.13it/s, t_loss=2.73, 
+i_acc=0.972, e_f1=0.615]
+Epochs:  38%|###8      | 38/100 [00:52<00:12,  5.00it/s, t_loss=2.73, 
+i_acc=0.972, e_f1=0.615]
+Epochs:  38%|###8      | 38/100 [00:52<00:12,  5.00it/s, t_loss=2.74, 
+i_acc=0.972, e_f1=0.571]
+Epochs:  39%|###9      | 39/100 [00:52<00:13,  4.66it/s, t_loss=2.74, 
+i_acc=0.972, e_f1=0.571]
+Epochs:  39%|###9      | 39/100 [00:52<00:13,  4.66it/s, t_loss=2.62, 
+i_acc=0.958, e_f1=0.667]
+Epochs:  40%|####      | 40/100 [00:53<00:13,  4.54it/s, t_loss=2.62, 
+i_acc=0.958, e_f1=0.667]
+Epochs:  40%|####      | 40/100 [00:53<00:13,  4.54it/s, t_loss=2.66, i_acc=1, 
+e_f1=0.8]      
+Epochs:  41%|####1     | 41/100 [00:53<00:12,  4.68it/s, t_loss=2.66, i_acc=1, 
+e_f1=0.8]
+Epochs:  41%|####1     | 41/100 [00:53<00:12,  4.68it/s, t_loss=2.68, 
+i_acc=0.958, e_f1=0.621]
+Epochs:  42%|####2     | 42/100 [00:53<00:11,  5.03it/s, t_loss=2.68, 
+i_acc=0.958, e_f1=0.621]
+Epochs:  42%|####2     | 42/100 [00:53<00:11,  5.03it/s, t_loss=2.58, 
+i_acc=0.972, e_f1=0.811]
+Epochs:  43%|####3     | 43/100 [00:53<00:11,  5.12it/s, t_loss=2.58, 
+i_acc=0.972, e_f1=0.811]
+Epochs:  43%|####3     | 43/100 [00:53<00:11,  5.12it/s, t_loss=2.63, 
+i_acc=0.986, e_f1=0.647]
+Epochs:  44%|####4     | 44/100 [00:53<00:11,  4.68it/s, t_loss=2.63, 
+i_acc=0.986, e_f1=0.647]
+Epochs:  44%|####4     | 44/100 [00:53<00:11,  4.68it/s, t_loss=2.55, 
+i_acc=0.986, e_f1=0.643]
+Epochs:  45%|####5     | 45/100 [00:54<00:11,  4.79it/s, t_loss=2.55, 
+i_acc=0.986, e_f1=0.643]
+Epochs:  45%|####5     | 45/100 [00:54<00:11,  4.79it/s, t_loss=2.53, i_acc=1, 
+e_f1=0.824]    
+Epochs:  46%|####6     | 46/100 [00:54<00:10,  4.99it/s, t_loss=2.53, i_acc=1, 
+e_f1=0.824]
+Epochs:  46%|####6     | 46/100 [00:54<00:10,  4.99it/s, t_loss=2.49, 
+i_acc=0.972, e_f1=0.733]
+Epochs:  47%|####6     | 47/100 [00:54<00:10,  5.13it/s, t_loss=2.49, 
+i_acc=0.972, e_f1=0.733]
+Epochs:  47%|####6     | 47/100 [00:54<00:10,  5.13it/s, t_loss=2.49, 
+i_acc=0.986, e_f1=0.812]
+Epochs:  48%|####8     | 48/100 [00:54<00:09,  5.24it/s, t_loss=2.49, 
+i_acc=0.986, e_f1=0.812]
+Epochs:  48%|####8     | 48/100 [00:54<00:09,  5.24it/s, t_loss=2.43, 
+i_acc=0.986, e_f1=0.727]
+Epochs:  49%|####9     | 49/100 [00:54<00:09,  5.15it/s, t_loss=2.43, 
+i_acc=0.986, e_f1=0.727]
+Epochs:  49%|####9     | 49/100 [00:54<00:09,  5.15it/s, t_loss=2.35, i_acc=1, 
+e_f1=0.774]    
+Epochs:  50%|#####     | 50/100 [00:55<00:10,  4.70it/s, t_loss=2.35, i_acc=1, 
+e_f1=0.774]
+Epochs:  50%|#####     | 50/100 [00:55<00:10,  4.70it/s, t_loss=2.56, 
+i_acc=0.958, e_f1=0.56]
+Epochs:  51%|#####1    | 51/100 [00:55<00:10,  4.85it/s, t_loss=2.56, 
+i_acc=0.958, e_f1=0.56]
+Epochs:  51%|#####1    | 51/100 [00:55<00:10,  4.85it/s, t_loss=2.42, 
+i_acc=0.958, e_f1=0.667]
+Epochs:  52%|#####2    | 52/100 [00:55<00:09,  5.03it/s, t_loss=2.42, 
+i_acc=0.958, e_f1=0.667]
+Epochs:  52%|#####2    | 52/100 [00:55<00:09,  5.03it/s, t_loss=2.46, 
+i_acc=0.986, e_f1=0.667]
+Epochs:  53%|#####3    | 53/100 [00:55<00:09,  5.17it/s, t_loss=2.46, 
+i_acc=0.986, e_f1=0.667]
+Epochs:  53%|#####3    | 53/100 [00:55<00:09,  5.17it/s, t_loss=2.37, i_acc=1, 
+e_f1=0.714]    
+Epochs:  54%|#####4    | 54/100 [00:55<00:09,  5.07it/s, t_loss=2.37, i_acc=1, 
+e_f1=0.714]
+Epochs:  54%|#####4    | 54/100 [00:55<00:09,  5.07it/s, t_loss=2.35, i_acc=1, 
+e_f1=0.8]  
+Epochs:  55%|#####5    | 55/100 [00:56<00:09,  4.75it/s, t_loss=2.35, i_acc=1, 
+e_f1=0.8]
+Epochs:  55%|#####5    | 55/100 [00:56<00:09,  4.75it/s, t_loss=2.33, i_acc=1, 
+e_f1=0.741]
+Epochs:  56%|#####6    | 56/100 [00:56<00:09,  4.57it/s, t_loss=2.33, i_acc=1, 
+e_f1=0.741]
+Epochs:  56%|#####6    | 56/100 [00:56<00:09,  4.57it/s, t_loss=2.35, i_acc=1, 
+e_f1=0.8]  
+Epochs:  57%|#####6    | 57/100 [00:56<00:08,  4.84it/s, t_loss=2.35, i_acc=1, 
+e_f1=0.8]
+Epochs:  57%|#####6    | 57/100 [00:56<00:08,  4.84it/s, t_loss=2.28, 
+i_acc=0.986, e_f1=0.643]
+Epochs:  58%|#####8    | 58/100 [00:56<00:08,  5.09it/s, t_loss=2.28, 
+i_acc=0.986, e_f1=0.643]
+Epochs:  58%|#####8    | 58/100 [00:56<00:08,  5.09it/s, t_loss=2.24, i_acc=1, 
+e_f1=0.839]    
+Epochs:  59%|#####8    | 59/100 [00:56<00:07,  5.40it/s, t_loss=2.24, i_acc=1, 
+e_f1=0.839]
+Epochs:  59%|#####8    | 59/100 [00:56<00:07,  5.40it/s, t_loss=2.17, i_acc=1, 
+e_f1=0.733]
+Epochs:  60%|######    | 60/100 [00:57<00:07,  5.18it/s, t_loss=2.17, i_acc=1, 
+e_f1=0.733]
+Epochs:  60%|######    | 60/100 [00:57<00:07,  5.18it/s, t_loss=2.25, 
+i_acc=0.986, e_f1=0.643]
+Epochs:  61%|######1   | 61/100 [00:57<00:08,  4.78it/s, t_loss=2.25, 
+i_acc=0.986, e_f1=0.643]
+Epochs:  61%|######1   | 61/100 [00:57<00:08,  4.78it/s, t_loss=2.2, i_acc=1, 
+e_f1=0.788]     
+Epochs:  62%|######2   | 62/100 [00:57<00:07,  4.82it/s, t_loss=2.2, i_acc=1, 
+e_f1=0.788]
+Epochs:  62%|######2   | 62/100 [00:57<00:07,  4.82it/s, t_loss=2.24, i_acc=1, 
+e_f1=0.71]
+Epochs:  63%|######3   | 63/100 [00:57<00:07,  4.97it/s, t_loss=2.24, i_acc=1, 
+e_f1=0.71]
+Epochs:  63%|######3   | 63/100 [00:57<00:07,  4.97it/s, t_loss=2.27, 
+i_acc=0.986, e_f1=0.788]
+Epochs:  64%|######4   | 64/100 [00:57<00:06,  5.26it/s, t_loss=2.27, 
+i_acc=0.986, e_f1=0.788]
+Epochs:  64%|######4   | 64/100 [00:57<00:06,  5.26it/s, t_loss=2.2, i_acc=1, 
+e_f1=0.774]     
+Epochs:  65%|######5   | 65/100 [00:58<00:06,  5.23it/s, t_loss=2.2, i_acc=1, 
+e_f1=0.774]
+Epochs:  65%|######5   | 65/100 [00:58<00:06,  5.23it/s, t_loss=2.2, 
+i_acc=0.986, e_f1=0.839]
+Epochs:  66%|######6   | 66/100 [00:58<00:06,  4.87it/s, t_loss=2.2, 
+i_acc=0.986, e_f1=0.839]
+Epochs:  66%|######6   | 66/100 [00:58<00:06,  4.87it/s, t_loss=2.19, i_acc=1, 
+e_f1=0.867]   
+Epochs:  67%|######7   | 67/100 [00:58<00:07,  4.71it/s, t_loss=2.19, i_acc=1, 
+e_f1=0.867]
+Epochs:  67%|######7   | 67/100 [00:58<00:07,  4.71it/s, t_loss=2.22, i_acc=1, 
+e_f1=0.759]
+Epochs:  68%|######8   | 68/100 [00:58<00:06,  4.76it/s, t_loss=2.22, i_acc=1, 
+e_f1=0.759]
+Epochs:  68%|######8   | 68/100 [00:58<00:06,  4.76it/s, t_loss=2.15, i_acc=1, 
+e_f1=0.741]
+Epochs:  69%|######9   | 69/100 [00:58<00:06,  5.04it/s, t_loss=2.15, i_acc=1, 
+e_f1=0.741]
+Epochs:  69%|######9   | 69/100 [00:58<00:06,  5.04it/s, t_loss=2.13, i_acc=1, 
+e_f1=0.897]
+Epochs:  70%|#######   | 70/100 [00:59<00:05,  5.22it/s, t_loss=2.13, i_acc=1, 
+e_f1=0.897]
+Epochs:  70%|#######   | 70/100 [00:59<00:05,  5.22it/s, t_loss=2.2, 
+i_acc=0.986, e_f1=0.774]
+Epochs:  71%|#######1  | 71/100 [00:59<00:05,  5.47it/s, t_loss=2.2, 
+i_acc=0.986, e_f1=0.774]
+Epochs:  71%|#######1  | 71/100 [00:59<00:05,  5.47it/s, t_loss=2.12, i_acc=1, 
+e_f1=0.828]   
+Epochs:  72%|#######2  | 72/100 [00:59<00:05,  5.59it/s, t_loss=2.12, i_acc=1, 
+e_f1=0.828]
+Epochs:  72%|#######2  | 72/100 [00:59<00:05,  5.59it/s, t_loss=2.13, i_acc=1, 
+e_f1=0.774]
+Epochs:  73%|#######3  | 73/100 [00:59<00:04,  5.48it/s, t_loss=2.13, i_acc=1, 
+e_f1=0.774]
+Epochs:  73%|#######3  | 73/100 [00:59<00:04,  5.48it/s, t_loss=2.12, i_acc=1, 
+e_f1=0.759]
+Epochs:  74%|#######4  | 74/100 [00:59<00:04,  5.59it/s, t_loss=2.12, i_acc=1, 
+e_f1=0.759]
+Epochs:  74%|#######4  | 74/100 [00:59<00:04,  5.59it/s, t_loss=2.16, i_acc=1, 
+e_f1=0.645]
+Epochs:  75%|#######5  | 75/100 [00:59<00:04,  5.57it/s, t_loss=2.16, i_acc=1, 
+e_f1=0.645]
+Epochs:  75%|#######5  | 75/100 [00:59<00:04,  5.57it/s, t_loss=2.05, i_acc=1, 
+e_f1=0.875]
+Epochs:  76%|#######6  | 76/100 [01:00<00:04,  5.43it/s, t_loss=2.05, i_acc=1, 
+e_f1=0.875]
+Epochs:  76%|#######6  | 76/100 [01:00<00:04,  5.43it/s, t_loss=2.15, i_acc=1, 
+e_f1=0.733]
+Epochs:  77%|#######7  | 77/100 [01:00<00:04,  5.59it/s, t_loss=2.15, i_acc=1, 
+e_f1=0.733]
+Epochs:  77%|#######7  | 77/100 [01:00<00:04,  5.59it/s, t_loss=2.01, i_acc=1, 
+e_f1=0.867]
+Epochs:  78%|#######8  | 78/100 [01:00<00:03,  5.56it/s, t_loss=2.01, i_acc=1, 
+e_f1=0.867]
+Epochs:  78%|#######8  | 78/100 [01:00<00:03,  5.56it/s, t_loss=2.05, i_acc=1, 
+e_f1=0.75] 
+Epochs:  79%|#######9  | 79/100 [01:00<00:03,  5.69it/s, t_loss=2.05, i_acc=1, 
+e_f1=0.75]
+Epochs:  79%|#######9  | 79/100 [01:00<00:03,  5.69it/s, t_loss=2.07, i_acc=1, 
+e_f1=0.8] 
+Epochs:  80%|########  | 80/100 [01:00<00:03,  5.66it/s, t_loss=2.07, i_acc=1, 
+e_f1=0.8]
+Epochs:  80%|########  | 80/100 [01:00<00:03,  5.66it/s, t_loss=1.97, i_acc=1, 
+e_f1=0.741]
+Epochs:  81%|########1 | 81/100 [01:00<00:03,  5.81it/s, t_loss=1.97, i_acc=1, 
+e_f1=0.741]
+Epochs:  81%|########1 | 81/100 [01:00<00:03,  5.81it/s, t_loss=1.98, i_acc=1, 
+e_f1=0.909]
+Epochs:  82%|########2 | 82/100 [01:01<00:03,  5.90it/s, t_loss=1.98, i_acc=1, 
+e_f1=0.909]
+Epochs:  82%|########2 | 82/100 [01:01<00:03,  5.90it/s, t_loss=1.96, i_acc=1, 
+e_f1=0.824]
+Epochs:  83%|########2 | 83/100 [01:01<00:02,  5.92it/s, t_loss=1.96, i_acc=1, 
+e_f1=0.824]
+Epochs:  83%|########2 | 83/100 [01:01<00:02,  5.92it/s, t_loss=2.05, i_acc=1, 
+e_f1=0.71] 
+Epochs:  84%|########4 | 84/100 [01:01<00:02,  5.99it/s, t_loss=2.05, i_acc=1, 
+e_f1=0.71]
+Epochs:  84%|########4 | 84/100 [01:01<00:02,  5.99it/s, t_loss=1.98, i_acc=1, 
+e_f1=0.8] 
+Epochs:  85%|########5 | 85/100 [01:01<00:02,  6.07it/s, t_loss=1.98, i_acc=1, 
+e_f1=0.8]
+Epochs:  85%|########5 | 85/100 [01:01<00:02,  6.07it/s, t_loss=2, i_acc=1, 
+e_f1=0.839] 
+Epochs:  86%|########6 | 86/100 [01:01<00:02,  5.90it/s, t_loss=2, i_acc=1, 
+e_f1=0.839]
+Epochs:  86%|########6 | 86/100 [01:01<00:02,  5.90it/s, t_loss=1.94, i_acc=1, 
+e_f1=0.903]
+Epochs:  87%|########7 | 87/100 [01:01<00:02,  6.05it/s, t_loss=1.94, i_acc=1, 
+e_f1=0.903]
+Epochs:  87%|########7 | 87/100 [01:01<00:02,  6.05it/s, t_loss=1.9, i_acc=1, 
+e_f1=0.968] 
+Epochs:  88%|########8 | 88/100 [01:02<00:02,  5.88it/s, t_loss=1.9, i_acc=1, 
+e_f1=0.968]
+Epochs:  88%|########8 | 88/100 [01:02<00:02,  5.88it/s, t_loss=1.99, i_acc=1, 
+e_f1=0.839]
+Epochs:  89%|########9 | 89/100 [01:02<00:01,  5.93it/s, t_loss=1.99, i_acc=1, 
+e_f1=0.839]
+Epochs:  89%|########9 | 89/100 [01:02<00:01,  5.93it/s, t_loss=1.91, i_acc=1, 
+e_f1=0.938]
+Epochs:  90%|######### | 90/100 [01:02<00:01,  6.01it/s, t_loss=1.91, i_acc=1, 
+e_f1=0.938]
+Epochs:  90%|######### | 90/100 [01:02<00:01,  6.01it/s, t_loss=1.94, i_acc=1, 
+e_f1=0.909]
+Epochs:  91%|#########1| 91/100 [01:02<00:01,  6.02it/s, t_loss=1.94, i_acc=1, 
+e_f1=0.909]
+Epochs:  91%|#########1| 91/100 [01:02<00:01,  6.02it/s, t_loss=1.9, i_acc=1, 
+e_f1=0.933] 
+Epochs:  92%|#########2| 92/100 [01:02<00:01,  5.89it/s, t_loss=1.9, i_acc=1, 
+e_f1=0.933]
+Epochs:  92%|#########2| 92/100 [01:02<00:01,  5.89it/s, t_loss=1.91, i_acc=1, 
+e_f1=0.909]
+Epochs:  93%|#########3| 93/100 [01:02<00:01,  6.05it/s, t_loss=1.91, i_acc=1, 
+e_f1=0.909]
+Epochs:  93%|#########3| 93/100 [01:02<00:01,  6.05it/s, t_loss=1.84, i_acc=1, 
+e_f1=0.938]
+Epochs:  94%|#########3| 94/100 [01:03<00:00,  6.15it/s, t_loss=1.84, i_acc=1, 
+e_f1=0.938]
+Epochs:  94%|#########3| 94/100 [01:03<00:00,  6.15it/s, t_loss=1.8, i_acc=1, 
+e_f1=0.903] 
+Epochs:  95%|#########5| 95/100 [01:03<00:00,  6.18it/s, t_loss=1.8, i_acc=1, 
+e_f1=0.903]
+Epochs:  95%|#########5| 95/100 [01:03<00:00,  6.18it/s, t_loss=1.85, i_acc=1, 
+e_f1=0.933]
+Epochs:  96%|#########6| 96/100 [01:03<00:00,  6.07it/s, t_loss=1.85, i_acc=1, 
+e_f1=0.933]
+Epochs:  96%|#########6| 96/100 [01:03<00:00,  6.07it/s, t_loss=1.88, i_acc=1, 
+e_f1=0.938]
+Epochs:  97%|#########7| 97/100 [01:03<00:00,  6.15it/s, t_loss=1.88, i_acc=1, 
+e_f1=0.938]
+Epochs:  97%|#########7| 97/100 [01:03<00:00,  6.15it/s, t_loss=1.84, i_acc=1, 
+e_f1=0.875]
+Epochs:  98%|#########8| 98/100 [01:03<00:00,  6.23it/s, t_loss=1.84, i_acc=1, 
+e_f1=0.875]
+Epochs:  98%|#########8| 98/100 [01:03<00:00,  6.23it/s, t_loss=1.84, i_acc=1, 
+e_f1=0.929]
+Epochs:  99%|#########9| 99/100 [01:03<00:00,  6.27it/s, t_loss=1.84, i_acc=1, 
+e_f1=0.929]
+Epochs:  99%|#########9| 99/100 [01:03<00:00,  6.27it/s, t_loss=1.85, i_acc=1, 
+e_f1=0.966]
+Epochs: 100%|##########| 100/100 [01:04<00:00,  6.17it/s, t_loss=1.85, 
+i_acc=1, e_f1=0.966]
+Epochs: 100%|##########| 100/100 [01:04<00:00,  6.17it/s, t_loss=1.84, 
+i_acc=1, e_f1=0.968]
+Epochs: 100%|##########| 100/100 [01:04<00:00,  1.56it/s, t_loss=1.84, 
+i_acc=1, e_f1=0.968]
+2026-05-01 17:58:08 [1;30mINFO    [0m [34mrasa.engine.training.hooks[0m  - 
+Finished training component 'DIETClassifier'.
+2026-05-01 17:58:08 [1;30mINFO    [0m [34mrasa.engine.training.hooks[0m  - 
+Starting to train component 'EntitySynonymMapper'.
+2026-05-01 17:58:08 [1;30mINFO    [0m [34mrasa.engine.training.hooks[0m  - 
+Finished training component 'EntitySynonymMapper'.
+2026-05-01 17:58:08 [1;30mINFO    [0m [34mrasa.engine.training.hooks[0m  - 
+Starting to train component 'ResponseSelector'.
+2026-05-01 17:58:08 [1;30mINFO    [0m 
+[34mrasa.nlu.selectors.response_selector[0m  - Retrieval intent parameter 
+was left to its default value. This response selector will be trained on 
+training examples combining all retrieval intents.
+2026-05-01 17:58:08 [1;30mINFO    [0m [34mrasa.engine.training.hooks[0m  - 
+Finished training component 'ResponseSelector'.
+2026-05-01 17:58:08 [1;30mINFO    [0m [34mrasa.engine.training.hooks[0m  - 
+Restored component 'MemoizationPolicy' from cache.
+2026-05-01 17:58:08 [1;30mINFO    [0m [34mrasa.engine.training.hooks[0m  - 
+Restored component 'RulePolicy' from cache.
+2026-05-01 17:58:08 [1;30mINFO    [0m [34mrasa.engine.training.hooks[0m  - 
+Restored component 'TEDPolicy' from cache.
+2026-05-01 17:58:08 [1;30mINFO    [0m [34mrasa.engine.training.hooks[0m  - 
+Restored component 'UnexpecTEDIntentPolicy' from cache.
+Traceback (most recent call last):
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-package
+s\rasa\model_training.py", line 286, in _train_graph
+    trainer.train(
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-package
+s\rasa\engine\training\graph_trainer.py", line 107, in train
+    return self._model_storage.create_model_package(
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-package
+s\rasa\engine\storage\local_model_storage.py", line 199, in 
+create_model_package
+    with windows_safe_temporary_directory() as temp_dir:
+  File 
+"C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\contextlib.py", 
+line 142, in __exit__
+    next(self.gen)
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-package
+s\rasa\engine\storage\local_model_storage.py", line 52, in 
+windows_safe_temporary_directory
+    shutil.rmtree(f"\\\\?\\{directory}")
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\shutil.py", 
+line 750, in rmtree
+    return _rmtree_unsafe(path, onerror)
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\shutil.py", 
+line 615, in _rmtree_unsafe
+    _rmtree_unsafe(fullname, onerror)
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\shutil.py", 
+line 615, in _rmtree_unsafe
+    _rmtree_unsafe(fullname, onerror)
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\shutil.py", 
+line 624, in _rmtree_unsafe
+    onerror(os.rmdir, path, sys.exc_info())
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\shutil.py", 
+line 622, in _rmtree_unsafe
+    os.rmdir(path)
+PermissionError: [WinError 5] Access is denied: '\\\\?\\C:\\Users\\punee\\AppDa
+ta\\Local\\Temp\\tmpf56crdyg\\components\\train_MemoizationPolicy0'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\runpy.py", 
+line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\runpy.py", 
+line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\Scripts\rasa.exe
+\__main__.py", line 7, in <module>
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-package
+s\rasa\__main__.py", line 133, in main
+    cmdline_arguments.func(cmdline_arguments)
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-package
+s\rasa\cli\train.py", line 61, in <lambda>
+    train_parser.set_defaults(func=lambda args: run_training(args, 
+can_exit=True))
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-package
+s\rasa\cli\train.py", line 101, in run_training
+    training_result = train_all(
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-package
+s\rasa\api.py", line 105, in train
+    return train(
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-package
+s\rasa\model_training.py", line 207, in train
+    return _train_graph(
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-package
+s\rasa\model_training.py", line 267, in _train_graph
+    with rasa.utils.common.TempDirectoryPath(tempdir_name) as temp_model_dir:
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\site-package
+s\rasa\utils\common.py", line 111, in __exit__
+    shutil.rmtree(self)
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\shutil.py", 
+line 750, in rmtree
+    return _rmtree_unsafe(path, onerror)
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\shutil.py", 
+line 615, in _rmtree_unsafe
+    _rmtree_unsafe(fullname, onerror)
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\shutil.py", 
+line 624, in _rmtree_unsafe
+    onerror(os.rmdir, path, sys.exc_info())
+  File "C:\Users\punee\AppData\Local\Programs\Python\Python310\lib\shutil.py", 
+line 622, in _rmtree_unsafe
+    os.rmdir(path)
+PermissionError: [WinError 5] Access is denied: 
+'C:\\Users\\punee\\AppData\\Local\\Temp\\tmpukm584uy\\train_MemoizationPolicy0'

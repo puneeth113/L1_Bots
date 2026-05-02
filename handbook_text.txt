@@ -1,0 +1,143 @@
+Here is the full text of the handbook based on the content provided, formatted with clear bullet points and double-spacing to make it easy for your Python script to parse into **MySQL**.
+
+---
+
+### **Orchids_Full_Handbook.txt**
+
+Section 1: Introduction to Handbook
+
+* The handbook provides general guidelines to familiarize employees with the Organization’s HR policies and procedures \r\n.
+
+* It acts as a guide to assist employees in becoming familiar with their privileges and obligations \r\n.
+
+* Individual copies are provided upon employment, and all employees are expected to abide by them \r\n.
+
+* The content of the handbook is confidential and belongs to the organization \r\n.
+
+* Employees are not allowed to print, copy, disclose, or use any part of it without HR team approval \r\n
+
+
+Section 2: School Hierarchy & Categories
+
+* The Academic Hierarchy flows from Principal to Academic EA, Academic Coordinators, and then Teachers \r\n
+
+* The Operations Hierarchy includes the Operations Manager, Campus Incharge (CIC), Accountant, and Ancillary Staff.\r\n
+
+* Campus Incharge (CIC) has a dual reporting relationship, including a line to the Security Head.\r\n
+
+* Teaching Staff includes Teachers, Senior Faculty, Librarians, Lab Assistants, and Counselors.\r\n
+
+* Admin Staff includes CIC, TIC, EA, Admission Counselors (PRM), Store Managers, and Accountants.\r\n
+
+
+Section 3: Recruitment Process
+
+* A TA SPOC (Single Point of Contact) is assigned to each hiring manager once a manpower requisition is raised.
+
+* Recruitment steps involve CV screening, interviews with the Hiring Manager, and final selection.
+
+* The Onboarding team handles induction, appointment letters, biometric access, and Email ID creation.
+
+* Mandatory documents include E-Aadhar Card, PAN Card, and Bank Details.
+
+* Employees covered under PF must submit an updated Aadhar card showing the full Date of Birth within 15 days of joining.
+
+* Failure to submit the Aadhar card will result in salary being placed on hold and exit from the system.
+
+
+Section 4: Codes Relevant to Employees
+
+* The ERP/Employee Code serves as the primary identification for punch in Eduvate.
+
+* The code always starts with the Year of Joining (e.g., 2021xxxxxxx).
+
+* This unique code is required for all formal communications with the HR department.
+
+* It is the unique identifier for logging into the Eduvate ERP platform.
+
+
+Section 5: Probation and Confirmation
+
+* The mandatory probation period for Admin and Marketing Staff is 12 Months.
+
+* The mandatory probation period for Teaching Staff and Deputy Leaders is 6 Months.
+
+* The organization reserves the right to extend the probation period up to 3 years based on performance.
+
+* Employees are deemed confirmed unless a written extension of probation is provided.
+
+* There is no difference in leave rules between confirmed and non-confirmed staff members.
+
+
+Section 6: Attendance Policy
+
+* Employees must daily punch in and out on the biometric machine to reflect their attendance.
+
+* Staff must strictly follow their assigned shift timings.
+
+* A 15-minute buffer period is provided from the start of the shift.
+
+* If an employee punches in 15 minutes after the shift start time, the system automatically marks them as half-day absent.
+
+* Attendance should be checked on GreytHR every 3-4 days to identify any technical issues.
+
+* Only 2 attendance regularizations (e.g., forgot to punch) are allowed per month.
+
+
+Section 7: Leave Policy
+
+* The Leave Cycle runs from 26th May of the current year to 25th May of the next year.
+
+* Casual Leave (CL): 11 days per cycle, credited on a pro-rata basis (6 in June, 5 in December).
+
+* Maximum of 3 Casual Leaves are permitted in a single month.
+
+* Maternity Leave (ML): Available after one year of continuous service for up to 2 children.
+
+* Term Vacations: Paid vacations for teaching staff only (Summer, Diwali/Dussehra, Christmas).
+
+* Sandwich Policy: Taking leave both before and after a holiday or weekend causes those holidays to be counted as leaves.
+
+* Vacation Sandwich: Taking leave the day before a vacation starts or the day of reopening results in the entire vacation being treated as LOP.
+
+
+Section 8: Salary and Payroll
+
+* The Payroll Cycle runs from the 26th of the current month to the 25th of the next month.
+
+* Salaries are released on or before the 10th of the following month.
+
+* If an employee joins after the 22nd of the month, they are added to the next month's payroll cycle with arrears.
+
+* PF (Provident Fund) is mandatory for employees with a basic salary equal to or below INR 15,000 per month.
+
+* Salary Advance: Employees can request up to one month's gross after 6 months of service, repayable in 3 installments.
+
+* Staff Children Concession: Employees are eligible for fee concessions for their children after completing probation.
+
+
+Section 9: Performance Appraisal
+
+* Eligibility: Employees who joined on or before 30th September of the academic year.
+
+* Increments are based on feedback from reporting managers, school heads, and department heads.
+
+* All increments for teaching and admin staff are effective from 26th May and paid along with the July salary.
+
+* Evaluation for teachers includes documented lesson observation reports throughout the year.
+
+
+Section 10: Reimbursement Policy**
+
+* All travel and reimbursement requests must be pre-approved by the reporting manager and HOD.
+
+* Employees must choose the lowest available airfare for business travel.
+
+* Daily food expenses are reimbursed according to the Entitlement Matrix based on employee cadre.
+
+* Expense claims without scanned copies of original bills will not be considered for reimbursement.
+
+* Local conveyance claims must be submitted using the specific Local Conveyance Claim Form.
+
+---
+

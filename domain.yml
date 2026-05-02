@@ -1,0 +1,125 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - thankyou
+  - ask_attendance
+  - ask_salary
+  - ask_leave
+  - request_regularize
+  - policy_question
+  - leave_issue
+  - leave_missed_apply
+  - leave_not_credited
+  - leave_other
+  - inform_time
+  - out_of_scope
+
+entities:
+  - employee_id
+  - issue_type
+
+slots:
+  employee_id:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: employee_id
+  issue_type:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: issue_type
+  regularize_count:
+    type: float
+    initial_value: 0
+    mappings:
+    - type: custom
+  feedback:
+    type: text
+    mappings:
+    - type: from_intent
+      intent: affirm
+      value: positive
+    - type: from_intent
+      intent: deny
+      value: negative
+  within_two_months:
+    type: text
+    mappings:
+    - type: from_intent
+      intent: affirm
+      value: yes
+    - type: from_intent
+      intent: deny
+      value: no
+
+responses:
+  utter_greet:
+  - text: "Hello! I'm the HR Assistant chatbot. How can I help you with your HR queries today?"
+
+  utter_goodbye:
+  - text: "Goodbye! If you have more questions, feel free to ask."
+
+  utter_thankyou:
+  - text: "You're welcome! Is there anything else I can assist you with?"
+
+  utter_out_of_scope:
+  - text: "I'm sorry, I can only assist with HR-related queries. Please contact HR directly for other matters."
+
+  utter_feedback_prompt:
+  - text: "Was this answer helpful? Please reply with yes or no."
+
+  utter_feedback_thanks:
+  - text: "Thank you for your feedback! I'm glad I could help."
+
+  utter_feedback_ack:
+  - text: "Thank you for the feedback. I'll pass this along so the answer can be improved."
+
+  utter_ask_leave_type:
+  - text: "What is your leave issue?"
+    buttons:
+    - title: "Missed to apply leave"
+      payload: /leave_missed_apply
+    - title: "Leave not credited"
+      payload: /leave_not_credited
+    - title: "Other"
+      payload: /leave_other
+
+  utter_ask_within_two_months:
+  - text: "Is this within the last 2 months?"
+    buttons:
+    - title: "Yes"
+      payload: /affirm
+    - title: "No"
+      payload: /deny
+
+  utter_apply_arrears:
+  - text: "Please apply arrears in Eduvate within the last 2 months. Still need help? Contact payroll2.branch@orchids.edu.in"
+
+  utter_arrears_not_applicable:
+  - text: "Arrears cannot be applied as it exceeds 2 months as per policy. Please refer to the handbook or contact payroll2.branch@orchids.edu.in for assistance."
+
+  utter_leave_not_credited:
+  - text: "HR is currently checking this and will update accordingly. Still need help? Contact payroll2.branch@orchids.edu.in"
+
+  utter_refer_handbook:
+  - text: "Please refer to the employee handbook for leave policies. Still need help? Contact payroll2.branch@orchids.edu.in"
+
+actions:
+  - action_validate_regularize
+  - action_query_handbook
+  - utter_greet
+  - utter_goodbye
+  - utter_thankyou
+  - utter_feedback_prompt
+  - utter_feedback_thanks
+  - utter_feedback_ack
+  - utter_out_of_scope
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
