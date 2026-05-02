@@ -80,17 +80,18 @@ def get_punch_in_delay_minutes(scheduled_in: str, actual_in: str) -> float:
 
 def evaluate_attendance(actual_hours: float, shift_info: dict, is_late: bool = False) -> dict:
     """Per-shift attendance evaluation — full / half / short.
-    If late punch-in beyond buffer, mark as half-day regardless of hours."""
+    If late punch-in beyond buffer, inform to apply regularization."""
     total       = shift_info.get("total", 8.5)
     half_thresh = total / 2
     is_pt       = shift_info.get("part_time", False)
     pt_label    = "Part-time half-day" if is_pt else "Half-day"
 
-    # If punch-in is delayed beyond buffer, mark as half-day
+    # If punch-in is delayed beyond buffer, prompt for regularization
     if is_late:
-        return {"status": "HALF",  "color": "warning",
-                "message": (f"⚠️ {pt_label} — Late punch-in detected ({actual_hours:.2f} hrs worked). "
-                            "Attendance marked as half-day due to delayed arrival.")}
+        return {"status": "LATE",  "color": "warning",
+                "message": (f"⏰ **Late Punch-In Detected** — Your attendance has been marked with a late arrival. "
+                            f"You need to apply for **Regularization** in the ERP system to correct this. "
+                            f"Contact HR if you need assistance: payroll2.branch@orchids.edu.in")}
 
     if actual_hours >= total:
         return {"status": "FULL",  "color": "success",
@@ -312,7 +313,7 @@ def hr_chatbot_page():
                         if is_late_punch_in(si.get("in", "08:00"), pi.strip()):
                             st.warning(
                                 f"⚠️ Punch-in **{pi.strip()}** is more than {PUNCH_IN_BUFFER_MIN} min "
-                                f"after scheduled time **{si.get('in','?')}**. This will be marked as half-day."
+                                f"after scheduled time **{si.get('in','?')}**. You will need to apply for regularization."
                             )
                         st.session_state.punch_in   = pi.strip()
                         st.session_state.chat_state = "attendance_punch_out"
@@ -388,10 +389,14 @@ def hr_chatbot_page():
 
                 if is_late:
                     delay_mins = get_punch_in_delay_minutes(si.get("in", "08:00"), st.session_state.punch_in)
-                    st.warning(
-                        f"⏰ **Delayed Punch-In:** {st.session_state.punch_in} vs scheduled "
-                        f"{si.get('in','?')} (Delay: {delay_mins:.0f} min, Buffer: {PUNCH_IN_BUFFER_MIN} min). "
-                        f"**Attendance marked as HALF-DAY.**"
+                    st.info(
+                        f"**📋 How to Apply for Regularization:**\n\n"
+                        f"1. Log in to **Eduvate ERP** system\n"
+                        f"2. Go to **Attendance → Regularization**\n"
+                        f"3. Select the date and provide reason for late arrival\n"
+                        f"4. Submit for HR approval\n\n"
+                        f"**Delay Details:** {delay_mins:.0f} minutes (Buffer: {PUNCH_IN_BUFFER_MIN} min)\n"
+                        f"**Contact HR:** payroll2.branch@orchids.edu.in"
                     )
 
             st.divider()
