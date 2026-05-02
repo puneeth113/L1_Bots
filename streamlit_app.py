@@ -1,7 +1,7 @@
 import streamlit as st
 import re
 from typing import List, Optional, Dict
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, time
 
 st.set_page_config(page_title="HR Handbook & Chatbot", page_icon="📘", layout="wide")
 
@@ -57,6 +57,11 @@ def calculate_working_hours(punch_in: str, punch_out: str) -> Optional[float]:
         return (t_out - t_in).total_seconds() / 3600
     except Exception:
         return None
+
+
+def time_to_string(t: time) -> str:
+    """Convert time object to HH:MM string."""
+    return t.strftime("%H:%M")
 
 
 def is_late_punch_in(scheduled_in: str, actual_in: str) -> bool:
@@ -157,7 +162,7 @@ def is_within_two_months(date_to_check) -> bool:
 def reset_to_issue_select():
     for k in ["shift", "punch_in", "punch_out", "leave_concern", "leave_date",
               "lapsed_type", "salary_concern", "working_days", "lop_days",
-              "salary_component", "salary_description"]:
+              "salary_component", "salary_description", "custom_shift_in", "custom_shift_out"]:
         st.session_state.pop(k, None)
     st.session_state.selected_issue = None
     st.session_state.chat_state     = "select_issue"
@@ -260,38 +265,77 @@ def hr_chatbot_page():
 
             shift_type = st.radio(
                 "Shift category:",
-                ["Regular", "7-Day", "Part-Time (Corp_7D_SP)"],
+                ["Regular", "7-Day", "Part-Time (Corp_7D_SP)", "Custom Shift"],
                 key="shift_type_radio", horizontal=True
             )
-            if shift_type == "Regular":
-                options = [k for k, v in SHIFTS.items() if not v["part_time"] and not v["seven_day"]]
-            elif shift_type == "7-Day":
-                options = [k for k, v in SHIFTS.items() if v["seven_day"]]
+            
+            if shift_type == "Custom Shift":
+                st.markdown("⏰ **Define Your Custom Shift Using Time Picker:**")
+                col_in, col_out = st.columns(2)
+                
+                with col_in:
+                    custom_in_time = st.time_input("Shift Start Time:", value=time(8, 15), key="custom_shift_in_time")
+                    custom_in_str = custom_in_time.strftime("%H:%M")
+                
+                with col_out:
+                    custom_out_time = st.time_input("Shift End Time:", value=time(17, 0), key="custom_shift_out_time")
+                    custom_out_str = custom_out_time.strftime("%H:%M")
+                
+                # Calculate total hours
+                custom_hours = calculate_working_hours(custom_in_str, custom_out_str)
+                if custom_hours and custom_hours > 0:
+                    st.success(f"✅ Custom shift: **{custom_in_str} → {custom_out_str}** ({custom_hours:.2f} hrs)")
+                    
+                    if st.button("➡️ Next", key="btn_custom_shift", use_container_width=True):
+                        st.session_state.shift = f"Custom | {custom_in_str} - {custom_out_str}  ({custom_hours:.2f} hrs)"
+                        st.session_state.custom_shift_in = custom_in_str
+                        st.session_state.custom_shift_out = custom_out_str
+                        st.session_state.custom_shift_total = custom_hours
+                        st.session_state.chat_state = "attendance_punch_in"
+                        st.rerun()
+                elif custom_hours and custom_hours <= 0:
+                    st.error("❌ End time must be after start time")
             else:
-                options = [k for k, v in SHIFTS.items() if v["part_time"]]
+                if shift_type == "Regular":
+                    options = [k for k, v in SHIFTS.items() if not v["part_time"] and not v["seven_day"]]
+                elif shift_type == "7-Day":
+                    options = [k for k, v in SHIFTS.items() if v["seven_day"]]
+                else:
+                    options = [k for k, v in SHIFTS.items() if v["part_time"]]
 
-            selected_shift = st.selectbox("Select your shift:", options, key="shift_select")
+                selected_shift = st.selectbox("Select your shift:", options, key="shift_select")
 
-            # Info card for selected shift
-            si = get_shift_info(selected_shift)
-            if si:
-                half = si["total"] / 2
-                type_label = ("📋 Part-Time" if si["part_time"]
-                              else "🗓️ 7-Day" if si["seven_day"] else "👔 Regular")
-                st.info(
-                    f"{type_label}  |  🕐 **{si['in']} → {si['out']}**  |  "
-                    f"Total: **{si['total']:.2f} hrs**  |  "
-                    f"Half-day threshold: **{half:.2f} hrs**"
-                )
+                # Info card for selected shift
+                si = get_shift_info(selected_shift)
+                if si:
+                    half = si["total"] / 2
+                    type_label = ("📋 Part-Time" if si["part_time"]
+                                  else "🗓️ 7-Day" if si["seven_day"] else "👔 Regular")
+                    st.info(
+                        f"{type_label}  |  🕐 **{si['in']} → {si['out']}**  |  "
+                        f"Total: **{si['total']:.2f} hrs**  |  "
+                        f"Half-day threshold: **{half:.2f} hrs**"
+                    )
 
-            if st.button("➡️ Next", key="btn_shift", use_container_width=True):
-                st.session_state.shift      = selected_shift
-                st.session_state.chat_state = "attendance_punch_in"
-                st.rerun()
+                if st.button("➡️ Next", key="btn_shift", use_container_width=True):
+                    st.session_state.shift      = selected_shift
+                    st.session_state.chat_state = "attendance_punch_in"
+                    st.rerun()
 
         # ── Punch In ─────────────────────────────────────────────────────────
         elif st.session_state.chat_state == "attendance_punch_in":
-            si = get_shift_info(st.session_state.shift)
+            # Check if custom shift or predefined shift
+            is_custom = st.session_state.shift.startswith("Custom |")
+            
+            if is_custom:
+                si = {
+                    "in": st.session_state.custom_shift_in,
+                    "out": st.session_state.custom_shift_out,
+                    "total": st.session_state.custom_shift_total
+                }
+            else:
+                si = get_shift_info(st.session_state.shift)
+            
             st.info(f"**Step 4:** Punch-In Time  |  Shift: **{si.get('in','?')} → {si.get('out','?')}**")
             st.markdown(f"**Selected Shift:** {st.session_state.shift}")
 
@@ -321,7 +365,17 @@ def hr_chatbot_page():
 
         # ── Punch Out ────────────────────────────────────────────────────────
         elif st.session_state.chat_state == "attendance_punch_out":
-            si = get_shift_info(st.session_state.shift)
+            is_custom = st.session_state.shift.startswith("Custom |")
+            
+            if is_custom:
+                si = {
+                    "in": st.session_state.custom_shift_in,
+                    "out": st.session_state.custom_shift_out,
+                    "total": st.session_state.custom_shift_total
+                }
+            else:
+                si = get_shift_info(st.session_state.shift)
+            
             st.info(f"**Step 5:** Punch-Out Time  |  Scheduled: **{si.get('out','?')}**")
             st.markdown(f"**Shift:** {st.session_state.shift}  |  **Punch In:** {st.session_state.punch_in}")
 
@@ -347,7 +401,19 @@ def hr_chatbot_page():
 
         # ── Result ──────────────────────────────────────────────────────────
         elif st.session_state.chat_state == "attendance_result":
-            si    = get_shift_info(st.session_state.shift)
+            is_custom = st.session_state.shift.startswith("Custom |")
+            
+            if is_custom:
+                si = {
+                    "in": st.session_state.custom_shift_in,
+                    "out": st.session_state.custom_shift_out,
+                    "total": st.session_state.custom_shift_total,
+                    "part_time": False,
+                    "seven_day": False
+                }
+            else:
+                si = get_shift_info(st.session_state.shift)
+            
             hours = calculate_working_hours(st.session_state.punch_in, st.session_state.punch_out)
             is_late = is_late_punch_in(si.get("in", "08:00"), st.session_state.punch_in)
             st.divider()
@@ -380,7 +446,7 @@ def hr_chatbot_page():
                     st.markdown(f"- **Full Day:** ≥ {total:.2f} hrs")
                     st.markdown(f"- **Half Day:** ≥ {half:.2f} hrs")
                     type_lbl = ("Part-Time" if si.get("part_time") else
-                                "7-Day"     if si.get("seven_day") else "Regular")
+                                "7-Day"     if si.get("seven_day") else "Custom" if is_custom else "Regular")
                     st.markdown(f"- **Shift Type:** {type_lbl}")
 
                 if   res["color"] == "success": st.success(res["message"])
