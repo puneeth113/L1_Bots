@@ -1104,8 +1104,11 @@ def handbook_browser_page():
 # SIDEBAR
 # ══════════════════════════════════════════════════════════════════════════════
 def render_sidebar():
+    if "page" not in st.session_state:
+        st.session_state.page = "HR Helpdesk"
+
     with st.sidebar:
-        st.markdown('<div class="sidebar-logo">🤖 Mitra</div>', unsafe_allow_html=True)
+        st.markdown('<div class="sidebar-logo"> Mitra</div>', unsafe_allow_html=True)
         st.markdown('<div class="sidebar-tagline">HR Assistant Platform · Orchids</div>', unsafe_allow_html=True)
 
         st.markdown('<div class="nav-section">Navigation</div>', unsafe_allow_html=True)
