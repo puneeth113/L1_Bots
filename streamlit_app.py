@@ -1110,34 +1110,34 @@ def render_sidebar():
 
         st.markdown('<div class="nav-section">Navigation</div>', unsafe_allow_html=True)
 
-    if st.button("HR Helpdesk", use_container_width=True):
-        st.session_state.page = "HR Helpdesk"
-
-    if st.button("HR Assistant", use_container_width=True):
-        st.session_state.page = "HR Assistant"
-
-    if st.button("Handbook Browser", use_container_width=True):
-        st.session_state.page = "Handbook Browser"
+        if st.button("HR Helpdesk", use_container_width=True):
+            st.session_state.page = "HR Helpdesk"
     
-    st.markdown("---")
-
-    st.markdown('<div class="nav-section">Quick Contact</div>', unsafe_allow_html=True)
-    st.markdown("""
-    <div class="contact-card">
-        <p><strong>Payroll & Leave Issues</strong></p>
-        <p>📧 payroll2.branch@orchids.edu.in</p>
-        <br>
-        <p><strong>Eduvate ERP Portal</strong></p>
-        <p>🌐 Attendance · Leave · Payslips</p>
-    </div>""", unsafe_allow_html=True)
-
-    st.markdown("---")
-    st.markdown(
-        '<p style="font-size:11px;color:#475569;text-align:center;">Mitra v2.0 · Built for Orchids HR</p>',
-        unsafe_allow_html=True
-    )
-
-    return st.session_state.page
+        if st.button("HR Assistant", use_container_width=True):
+            st.session_state.page = "HR Assistant"
+    
+        if st.button("Handbook Browser", use_container_width=True):
+            st.session_state.page = "Handbook Browser"
+        
+        st.markdown("---")
+    
+        st.markdown('<div class="nav-section">Quick Contact</div>', unsafe_allow_html=True)
+        st.markdown("""
+        <div class="contact-card">
+            <p><strong>Payroll & Leave Issues</strong></p>
+            <p>📧 payroll2.branch@orchids.edu.in</p>
+            <br>
+            <p><strong>Eduvate ERP Portal</strong></p>
+            <p>🌐 Attendance · Leave · Payslips</p>
+        </div>""", unsafe_allow_html=True)
+    
+        st.markdown("---")
+        st.markdown(
+            '<p style="font-size:11px;color:#475569;text-align:center;">Mitra v2.0 · Built for Orchids HR</p>',
+            unsafe_allow_html=True
+        )
+    
+        return st.session_state.page
 
 
 # ══════════════════════════════════════════════════════════════════════════════
