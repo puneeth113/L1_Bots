@@ -1134,7 +1134,7 @@ def render_sidebar():
         st.markdown("---")
         st.markdown('<p style="font-size:11px;color:#475569;text-align:center;">Mitra v2.0 · Built for Orchids HR</p>', unsafe_allow_html=True)
 
-    return page
+   return st.session_state.page
 
 
 # ══════════════════════════════════════════════════════════════════════════════
