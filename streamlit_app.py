@@ -1137,7 +1137,7 @@ def render_sidebar():
             unsafe_allow_html=True
         )
     
-        return st.session_state.page
+    return st.session_state.page
 
 
 # ══════════════════════════════════════════════════════════════════════════════
